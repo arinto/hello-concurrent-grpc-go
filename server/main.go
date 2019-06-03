@@ -20,6 +20,7 @@ type server struct{
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	log.Printf("Received %+v, sleep for %+v\n", in.Name, s.sleep)
 	time.Sleep(s.sleep)
+	log.Println("Done!")
 	return &pb.HelloReply{Message: s.id + ": Hello " + in.Name}, nil
 }
 
